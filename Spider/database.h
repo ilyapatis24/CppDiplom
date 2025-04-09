@@ -8,7 +8,7 @@
 class database {
 private:
 	std::unique_ptr <pqxx::connection> c;
-	std::mutex mtx; // добавляем мьютекс
+	std::mutex mtx; // РґРѕР±Р°РІР»СЏРµРј РјСЊСЋС‚РµРєСЃ
 	std::string str_creation = {
 			"CREATE TABLE IF NOT EXISTS links ("
 			"id SERIAL PRIMARY KEY, "
@@ -43,9 +43,9 @@ public:
 
 	void CloseConnection();
 
-	database(const database&) = delete; // Запретим копирование
+	database(const database&) = delete; // Р—Р°РїСЂРµС‚РёРј РєРѕРїРёСЂРѕРІР°РЅРёРµ
 
-	database& operator=(const database&) = delete; // Запретим копирование
+	database& operator=(const database&) = delete; // Р—Р°РїСЂРµС‚РёРј РєРѕРїРёСЂРѕРІР°РЅРёРµ
 
 	void word_add(const std::string newWord);
 

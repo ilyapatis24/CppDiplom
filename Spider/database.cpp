@@ -14,14 +14,14 @@ void database::SetConnection(std::string DataBaseHostName,
 	int DataBasePort) {
 	std::string str_connection = "";
 
-	// Составим строку для подключения
+	// РЎРѕСЃС‚Р°РІРёРј СЃС‚СЂРѕРєСѓ РґР»СЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
 	str_connection.append("host=" + DataBaseHostName + " ");
 	str_connection.append("port=" + std::to_string(DataBasePort) + " ");
 	str_connection.append("dbname=" + DataBaseName + " ");
 	str_connection.append("user=" + DataBaseUserName + " ");
 	str_connection.append("password=" + DataBasePassword);
 
-	// Создадим подключение
+	// РЎРѕР·РґР°РґРёРј РїРѕРґРєР»СЋС‡РµРЅРёРµ
 	std::unique_ptr<pqxx::connection> c1 = std::make_unique<pqxx::connection>(str_connection);
 	c = std::move(c1);
 	(*c).set_client_encoding("UTF8");
@@ -119,7 +119,7 @@ int database::getLinkId(const std::string& linkValue) {
 			return id;
 		}
 		else {
-			// Если результат пустой, вернуть -1 или другое значение по умолчанию
+			// Р•СЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РїСѓСЃС‚РѕР№, РІРµСЂРЅСѓС‚СЊ -1 РёР»Рё РґСЂСѓРіРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 			return -1;
 		}
 	}
