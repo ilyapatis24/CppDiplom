@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.20)
 project(Finder)
 set(PostgreSQL_ADDITIONAL_VERSIONS "14")
 
@@ -6,7 +6,7 @@ set(PostgreSQL_ADDITIONAL_VERSIONS "14")
 # Путь к библиотекам Boost
 set(Boost_INCLUDE_DIRS "c:/vcpkg/")  
 
-# Пути к файлам в проекте Spyder относительно Finder
+# Пути к файлам в проекте Spider относительно Finder
 set(SPIDER_SOURCE_DIR "${CMAKE_SOURCE_DIR}/../Spider")
 
 # Файлы для добавления из Spyder в Finder
