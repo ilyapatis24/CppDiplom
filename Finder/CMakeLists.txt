@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.30)
 project(Finder)
 set(PostgreSQL_ADDITIONAL_VERSIONS "14")
 
@@ -38,6 +38,6 @@ include_directories(${Boost_INCLUDE_DIRS})
 target_link_libraries(Finder ${Boost_LIBRARIES})
 
 
-add_subdirectory("D:/CppDiplom/libpqxx-7.10.0" libpqxx-build)
+add_subdirectory("C:/libpqxx-7.10.0" libpqxx-build)
 target_compile_features(Finder PRIVATE cxx_std_17) # Включим C++17
 target_link_libraries(Finder pqxx)

@@ -30,7 +30,7 @@ ParcerHTML::ParcerHTML(std::string HTML_strings, std::string SourceHost) {
 	Line = std::regex_replace(Line, pattern_nbsp, " ");
 
 	// Удалим все символы, которые не буквы и не цифры
-	std::regex pattern_keep_alphanumeric(R"([^0-9
+	std::regex pattern_keep_alphanumeric(R"([^
  a b c d e f g h i j k l m n o p q r s t u v w x y z
  а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я
  А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я
@@ -57,7 +57,7 @@ ParcerHTML::ParcerHTML(std::string HTML_strings, std::string SourceHost) {
 		if (Line[iter] == '_') {
 			cut_end_pos = iter;
 			std::string word = Line.substr(cut_start_pos, cut_end_pos - cut_start_pos);
-			if ((word.length() >= 4) && (word.length() <= 40)) {
+			if ((word.length() >= 3) && (word.length() <= 40)) {
 				Frequencies[word]++;
 			}
 			cut_start_pos = iter + 1;
@@ -65,7 +65,7 @@ ParcerHTML::ParcerHTML(std::string HTML_strings, std::string SourceHost) {
 		else if (iter == (lineLength - 1)) {
 			cut_end_pos = lineLength;
 			std::string word = Line.substr(cut_start_pos, cut_end_pos - cut_start_pos);
-			if ((word.length() >= 4) && (word.length() <= 40)) {
+			if ((word.length() >= 3) && (word.length() <= 40)) {
 				Frequencies[word]++;
 			}
 		}

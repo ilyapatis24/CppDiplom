@@ -33,7 +33,7 @@ std::vector<std::string> finder(std::string inSeachString, database& DB) {
 	// Удалим все символы, которые не буквы и не цифры
 	try
 	{
-		std::regex pattern_keep_alphanumeric(R"([^0-9
+		std::regex pattern_keep_alphanumeric(R"([^
  a b c d e f g h i j k l m n o p q r s t u v w x y z
  а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я
  А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я
@@ -65,7 +65,7 @@ std::vector<std::string> finder(std::string inSeachString, database& DB) {
 		if (inSeachString[iter] == '_') {
 			cut_end_pos = iter;
 			std::string word = inSeachString.substr(cut_start_pos, cut_end_pos - cut_start_pos);
-			if (word.length() >= 4) {
+			if (word.length() >= 3) {
 				setInWords.insert(word);
 			}
 			cut_start_pos = iter + 1;
@@ -73,7 +73,7 @@ std::vector<std::string> finder(std::string inSeachString, database& DB) {
 		else if (iter == (stringLength - 1)) {
 			cut_end_pos = stringLength;
 			std::string word = inSeachString.substr(cut_start_pos, cut_end_pos - cut_start_pos);
-			if (word.length() >= 4) {
+			if (word.length() >= 3) {
 				setInWords.insert(word);
 			}
 		}

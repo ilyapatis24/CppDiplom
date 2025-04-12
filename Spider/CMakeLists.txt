@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.30)
 project(Spider)
 set(PostgreSQL_ADDITIONAL_VERSIONS "14")
 # Устанавливаем опцию компилятора для работы с UTF-8
@@ -27,7 +27,6 @@ set(PROJECT_SOURCES
 )
 
 # Поиск и подключение Boost
-#find_package(Boost 1.81.0 COMPONENTS locale REQUIRED)
 find_package(Boost 1.86 COMPONENTS system thread locale REQUIRED)
 
 find_package(OpenSSL REQUIRED)
@@ -47,6 +46,6 @@ target_link_libraries(Spider ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES})
 include_directories(${GUMBO_INCLUDE_DIR})
 target_link_libraries(Spider "${GUMBO_LIB_DIR}/gumbo.lib")
 
-add_subdirectory("D:/CppDiplom/libpqxx-7.10.0" libpqxx-build)
+add_subdirectory("C:/libpqxx-7.10.0" libpqxx-build)
 target_compile_features(Spider PRIVATE cxx_std_17) # Включение C++17
 target_link_libraries(Spider pqxx)

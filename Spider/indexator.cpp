@@ -30,6 +30,12 @@ std::set<std::string> indexator(database& DB, std::string inLink) {
 	//Определим тип сервера: http или https
 	const std::string http_pref = "http://";
 	const std::string https_pref = "https://";
+	// отрезать часть URL после #
+	auto grid_ptr = inLink.find('#');
+	if (grid_ptr != std::string::npos)
+	{
+		inLink = inLink.substr(0, grid_ptr);
+	}
 	if (inLink.compare(0, https_pref.length(), https_pref) == 0) {
 		isHTTPS = true;
 		//std::regex pattern_https(https_pref);
@@ -97,6 +103,7 @@ std::set<std::string> indexator(database& DB, std::string inLink) {
 			for (const auto& line : Links) {
 				//std::cout << line << std::endl;
 			}
+
 			try
 			{
 				// Добавим в базу адресс страницы, которую проиндексировали (если такого адреса там ещё нет)

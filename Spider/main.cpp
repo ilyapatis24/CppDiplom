@@ -170,9 +170,7 @@ int main()
 	SetConsoleOutputCP(65001); //UTF-8
 	// Прочитаем конфигурацию в файле configuration.ini
 	try {
-		char buffer[MAX_PATH];
-		GetCurrentDirectory(MAX_PATH, buffer);
-		std::string filePath = std::string(buffer) + "\\configuration.ini"; // определим путь к исполняемому файлу
+		std::string filePath = "D:\\CppDiplom\\Spider\\configuration.ini"; // определим путь к исполняемому файлу
 		std::cout << filePath;
 		ParcerINI parser = ParcerINI::ParcerINI(filePath);
 
